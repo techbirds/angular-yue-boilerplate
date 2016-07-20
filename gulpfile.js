@@ -32,7 +32,9 @@ var connect = require('gulp-connect');
 var os = require('os');
 var open = require('gulp-open');
 var eslint = require('gulp-eslint');
+var env = process.env.NODE_ENV;
 
+console.log(env);
 
 var config = {
 
@@ -291,12 +293,3 @@ gulp.task('dev', function (cb) {
 gulp.task('prod', function (cb) {
     runSequence('clean', ['scripts', 'bower', 'styles', 'fonts', 'images','templates'],'index', cb)
 });
-
-
-
-
-
-
-
-
-

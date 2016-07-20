@@ -10,11 +10,14 @@
     "angular": {
       "main": "angular.min.js"
     },
-    "bootstrap":{
+    "bootstrap": {
       "main": "./dist/css/bootstrap.min.css"
     },
-    "jquery":{
-      "main":""
+    "jquery": {
+      "main": ""
     }
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.7"
   }
 }
