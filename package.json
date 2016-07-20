@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install --no-interactive --allow-root"
   },
   "author": "",
   "license": "ISC",
