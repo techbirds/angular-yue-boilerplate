@@ -1,0 +1,20 @@
+{
+  "name": "angular-yue-1.0",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.5.7",
+    "angular-bootstrap": "~1.3.3",
+    "bootstrap": "~3.3.6"
+  },
+  "overrides": {
+    "angular": {
+      "main": "angular.min.js"
+    },
+    "bootstrap":{
+      "main": "./dist/css/bootstrap.min.css"
+    },
+    "jquery":{
+      "main":""
+    }
+  }
+}

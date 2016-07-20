@@ -1,0 +1,53 @@
+{
+  "name": "angular-yue-1.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install --no-interactive --allow-root"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "benchmark": "^2.1.0",
+    "browserify": "^11.0.1",
+    "del": "^2.2.0",
+    "glob": "^5.0.14",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.2.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-filter": "^4.0.0",
+    "gulp-gzip": "^1.4.0",
+    "gulp-if": "^2.0.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-open": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.8",
+    "lodash": "^4.13.1",
+    "lodash.assign": "^3.2.0",
+    "main-bower-files": "^2.13.1",
+    "run-sequence": "^1.1.5",
+    "stream-series": "^0.1.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.1"
+  },
+  "dependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-angular": "^1.3.0",
+    "eslint-plugin-promise": "^2.0.0",
+    "eslint-plugin-standard": "^2.0.0"
+  }
+}

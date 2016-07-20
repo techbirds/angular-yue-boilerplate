@@ -1,0 +1,16 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": ["eslint:recommended","angular"],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ]
+    }
+}
