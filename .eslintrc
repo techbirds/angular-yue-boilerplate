@@ -2,11 +2,11 @@
     "env": {
         "browser": true
     },
-    "extends": ["eslint:recommended","angular"],
+    "extends": ["angular"],
     "rules": {
         "indent": [
             "error",
-            "tab"
+            4
         ],
         "linebreak-style": [
             "error",
