@@ -27,14 +27,11 @@ var inject = require('gulp-inject');
 var series = require('stream-series');
 var watch = require('gulp-watch');
 var gzip = require('gulp-gzip');
-var lreload = require('gulp-livereload');
 var connect = require('gulp-connect');
 var os = require('os');
 var open = require('gulp-open');
 var eslint = require('gulp-eslint');
 var env = process.env.NODE_ENV;
-
-console.log(env);
 
 var config = {
 
@@ -49,8 +46,8 @@ var config = {
     },
 
     templates: {
-        name : 'app.templates.js',
-        moduleName : 'app.templates',
+        name: 'app.templates.js',
+        moduleName: 'app.templates',
         src: './src/app/**/*.html',
         dist: './dist/resources'
     },
@@ -83,28 +80,28 @@ var config = {
         }
     },
 
-    index : {
-        src : './src/index.html',
-        dist : './dist/',
-        scripts : {
-            lib : './dist/**/lib*',
-            app : './dist/**/app*'
+    index: {
+        src: './src/index.html',
+        dist: './dist/',
+        scripts: {
+            lib: './dist/**/lib*',
+            app: './dist/**/app*'
         }
     },
 
-    gzip : {
+    gzip: {
         src: ['dist/resources/*.{html,xml,json,css,js,js.map,css.map}'],
         dist: 'dist/resources'
     },
 
-    open :{
-        url : 'http://localhost',
-        port : 8888,
-        path : '/dist'
+    open: {
+        url: 'http://localhost',
+        port: 8888,
+        path: '/dist'
     },
 
-    eslint : {
-        src : './src/**/*.js'
+    eslint: {
+        src: './src/**/*.js'
     }
 
 }
@@ -208,7 +205,8 @@ gulp.task('templates', function () {
             standalone: true
         }))
         .pipe(uglify())
-        .pipe(gulp.dest(config.templates.dist));;
+        .pipe(gulp.dest(config.templates.dist));
+    ;
 });
 
 // index
@@ -216,7 +214,7 @@ gulp.task('index', function () {
     var target = gulp.src(config.index.src);
     var libSource = gulp.src(config.index.scripts.lib, {read: false});
     var appSource = gulp.src(config.index.scripts.app, {read: false});
-    return target.pipe(inject(series(libSource,appSource),{relative: true}))
+    return target.pipe(inject(series(libSource, appSource), {relative: true}))
         .pipe(gulp.dest(config.index.dist));
 });
 
@@ -231,23 +229,23 @@ gulp.task('native-watch', function () {
 
 // watch
 gulp.task('watch', function () {
-    watch(config.scripts.src, function(){
-        gulp.start('scripts');
+    watch(config.scripts.src, function (cb) {
+        runSequence('eslint','scripts');
     });
 
-    watch(config.styles.src, function(){
+    watch(config.styles.src, function () {
         gulp.start('styles');
     });
 
-    watch(config.templates.src, function(){
+    watch(config.templates.src, function () {
         gulp.start('templates');
     });
 
-    watch(config.images.src, function(){
+    watch(config.images.src, function () {
         gulp.start('images');
     });
 
-    watch(config.index.src, function(){
+    watch(config.index.src, function () {
         gulp.start('index');
     });
 });
@@ -260,7 +258,7 @@ gulp.task('gzip', function () {
 });
 
 // connect
-gulp.task('connect', function() {
+gulp.task('connect', function () {
     connect.server({
         port: config.open.port,
         livereload: true
@@ -268,28 +266,33 @@ gulp.task('connect', function() {
 });
 
 // open url
-gulp.task('open', function() {
+gulp.task('open', function () {
     var options = {
         uri: config.open.url + ":" + config.open.port + config.open.path, // 注意uri格式书写
-        app : browser
+        app: browser
     };
     return gulp.src('./') // 目录存在即可,不影响打开的地址
         .pipe(open(options));
 });
 
 // eslint
-gulp.task('eslint',function(){
-   return gulp.src(config.eslint.src)
-       .pipe(eslint())
-       .pipe(eslint.format())
-       .pipe(eslint.failAfterError());
+gulp.task('eslint', function () {
+    return gulp.src(config.eslint.src)
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError())
+        .on('error', handleError); // 转码异常捕捉,不终止watch
 });
 
+function handleError(err) {
+    console.log(err.toString());
+    this.emit('end');
+}
 
 gulp.task('dev', function (cb) {
-    runSequence('clean', 'eslint',['scripts', 'bower', 'styles', 'fonts', 'images','templates'],'index','watch','connect','open', cb)
+    runSequence('clean', 'eslint', ['scripts', 'bower', 'styles', 'fonts', 'images', 'templates'], 'index', 'watch', 'connect', 'open', cb)
 });
 
 gulp.task('prod', function (cb) {
-    runSequence('clean', ['scripts', 'bower', 'styles', 'fonts', 'images','templates'],'index', cb)
+    runSequence('clean', ['scripts', 'bower', 'styles', 'fonts', 'images', 'templates'], 'index', cb)
 });
