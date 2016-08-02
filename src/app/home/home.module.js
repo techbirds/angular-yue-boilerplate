@@ -2,11 +2,12 @@
  * Created by TechBirds on 16/7/11.
  */
 
-(function(){
+(function () {
 
-    angular.module('home',[])
-        .controller('HomeController',function($scope){
-            $scope.msg = 'hello world!';
+    angular.module('home', [])
+        .controller('HomeController', function () {
+            var vm = this;
+            vm.msg = 'hello world!';
         });
 
 })();

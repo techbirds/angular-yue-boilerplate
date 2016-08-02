@@ -9,10 +9,8 @@
         'common',
         'home',
         'app.templates'
-    ]).controller('HelloWorldController',function($scope){
-        $scope.msg = 'Hello World!';
+    ]).controller('HelloWorldController',function(){
+        var vm = this;
+        vm.msg = 'Hello Angular-Yue Boilerplate!';
     });
-
-    alert("hello angular-yue 222211212!");
-
 })();
