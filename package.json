@@ -8,8 +8,8 @@
     "prod" : "cross-env NODE_ENV=prodcution gulp prod",
     "tests" : "karma start"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "TechBirds",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",
     "benchmark": "^2.1.0",

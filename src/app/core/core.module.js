@@ -4,6 +4,6 @@
 
 (function(){
 
-    angular.module('core',[]);
+    angular.module('core',[])
 
 })();

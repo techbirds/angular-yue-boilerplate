@@ -149,6 +149,7 @@ gulp.task('scripts', function () {
     return gulp.src(config.scripts.src)
         .pipe(sourcemaps.init())
         .pipe(ngAnnotate())
+        .on('error', handleError) // 转码异常捕捉,不终止watch
         .pipe(uglify({
             compress: {drop_console: true}
         }))
@@ -156,6 +157,7 @@ gulp.task('scripts', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.scripts.dist))
         .pipe(connect.reload());
+
 });
 
 // bower

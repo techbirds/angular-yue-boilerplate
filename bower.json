@@ -4,7 +4,12 @@
   "dependencies": {
     "angular": "~1.5.7",
     "angular-bootstrap": "~1.3.3",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.4",
+    "lodash": "~4.16.4",
+    "angular-local-storage": "~0.5.2",
+    "moment": "~2.15.1",
+    "crypto-js": "~3.1.7"
   },
   "overrides": {
     "angular": {
@@ -15,6 +20,23 @@
     },
     "jquery": {
       "main": ""
+    },
+    "lodash": {
+      "development": "./dist/lodash.js",
+      "production": "./dist/lodash.min.js"
+    },
+    "moment": {
+      "main": [
+        "./min/moment.min.js",
+        "./locale/zh-cn.js"
+      ]
+    },
+    "angular-local-storage": {
+      "development": "./dist/angular-local-storage.js",
+      "production": "./dist/angular-local-storage.min.js"
+    },
+    "crypto-js":{
+      "main":"crypto-js.js"
     }
   },
   "devDependencies": {
